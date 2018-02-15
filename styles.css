@@ -1,0 +1,26 @@
+.player-name {
+  color: black;
+
+}
+.title {
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+
+}
+.everything {
+  background-color: #006400;
+}
+.options {
+  color: white;
+  text-align: center;
+}
+.death {
+  color: white;
+  text-align: center;
+
+}
+.choice {
+  color: #170F11;
+  text-align: center;
+}

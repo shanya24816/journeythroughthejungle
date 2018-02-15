@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Journey to your Death</title>
+</head>
+
+<body class="everything">
+  <main role="main">
+    <div class="container">
+      <div id="game-start" class="row">
+        <div class="col">
+          <h1 class="title">Your Way Through the Jungle</h1>
+          <p class="title"> This is the start, please insert your name and click start</p>
+          <div class="input-group mb-3">
+            <input id="name-input" type="text" class="form-control" placeholder="Your Name">
+            <div class="input-group-append">
+              <button class="btn btn-primary" onclick="startGame()">START</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- passage 1 -->
+      <div id="passage-1" class="row" hidden>
+        <div class="col">
+          <p>Hi <span class="player-name" id="user-name"><span> to survive you only have two options </p>
+        <p class="options">This is a very difficult game. Your mission is to find the chess and recover the jewel that is inside. The point of this game is for you to use your intuition and make wise decisions. Do you wish to have FOOD, WATER, or SHELTER first?</p>
+        <p class="choice"><a href="#" id="foodOption" class="options" onclick="clickFunction(id)"> FOOD </a> and <a href="#" id="shelterOption" class="options" onclick="clickFunction(id)"> SHELTER </a> and <a href="#" id="waterOption" class="options" onclick="clickFunction(id)"> WATER </a></p>
+      </div>
+    </div>
+
+    <!--  FOOD-->
+    <div id="foodPassage" class="row" hidden>
+      <div class="col">
+          <h2 class="title">G A M E  O V E R </h2>
+        <div class="death">
+        <p>You're Dead</p>
+      </div>
+        <p class="death"><a  href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+
+    <!--  SHELTER-->
+    <div id="shelterPassage" class="row" hidden>
+      <div class="col">
+          <h2 class="title">S H E L T E R </h2>
+        <p class="title">
+          You have made a decision of finding SHELTER. Now you must decide if you want a TREE house or a house on the GROUND.
+        </p>
+        <p class="choice"><a href="#" id="treeOption" class="options" onclick="clickFunction(id)">TREE</a> or <a href="#" id="groundOption" class="options" onclick="clickFunction(id)">GROUND</a></p>
+      </div>
+    </div>
+    <!--  WATER -->
+    <div id="waterPassage" class="row" hidden>
+      <div class="col">
+          <h2 class="title">W A T E R </h2>
+        <p class="title">
+        You have made a decision of finding WATER. Now you must decide if you want water from the RIVER or water from a COCONUT.
+        </p>
+        <p class="choice"><a href="#" id="riverOption" class="options" onclick="clickFunction(id)">RIVER</a> or <a href="#" id="coconutOption" class="options" onclick="clickFunction(id)">COCONUT</a></p>
+      </div>
+    </div>
+    <!-- river -->
+    <div id="riverPassage" class="row" hidden>
+      <div class="col">
+          <h2 class="title">G A M E  O V E R </h2>
+        <p class="death">
+        You have chosen the river. SORRY BUT YOU'RE DEAD!
+        </p>
+          <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  cocunut -->
+    <div id="coconutPassage" class="row" hidden>
+      <div class="col">
+          <h2 class="title">C O C O N U T </h2>
+        <p class="title">
+        You have made a decision of cocunut. Now you must decide if you want to CLIMB the tree and get one or WAIT until one falls.
+        </p>
+        <p class="choice"><a href="#" id="climbOption" class="options" onclick="clickFunction(id)">CLIMB</a> or <a href="#" id="waitOption" class="options" onclick="clickFunction(id)">WAIT</a></p>
+      </div>
+    </div>
+    <!--  climb -->
+    <div id="climbPassage" class="row" hidden>
+      <div class="col">
+          <h2 class="title">G A M E  O V E R </h2>
+        <p class="death">
+        You have chosen the climbing. SORRY BUT YOU'RE DEAD!
+        </p>
+          <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+
+      </div>
+    </div>
+    <!--  wait-->
+    <div id="waitPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title"> W A I T I N G </h2>
+        <p class="title">
+        You have made a decision of waiting. Now you must decide on what to do as you wait for a coconut to fall down. You can either ADVENTURE FURTHER into the jungle or you can sleep on the bare GROUND and HOPE that an animal doesn't kill you.
+        </p>
+        <p class="choice"><a href="#" id="adventurefurtherOption" class="options" onclick="clickFunction(id)">ADVENTURE FURTHER</a> or <a href="#" id="sleepandhopeOption" class="options" onclick="clickFunction(id)">SLEEP and HOPE</a></p>
+      </div>
+    </div>
+    <!--  tree-->
+    <div id="treePassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">G A M E  O V E R </h2>
+        <p class="death">
+        As yoy have chosen to build a tree house, sadly there was already a family of gorillas living in only that particular tree and the whole entire family just also happened to feel extremely hungry, in the end you were eaten by a family of gorillas and DIED.
+        </p>
+          <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  ground-->
+    <div id="groundPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">G R O U N D </h2>
+        <p class="title">
+        You have made a decision of sleeping on the ground. Luckily a family of gorillas weren't hungry and didin't eat you and you made it to the moring. Now that you have survived, what is your next move? You can EAT BREAKFAST or START JOURNEY looking for the jewel.
+        </p>
+        <p class="choice"><a href="#" id="breakfastOption" class="options" onclick="clickFunction(id)">EAT BREAKFAST</a> or <a href="#" id="startjourneyOption" class="options" onclick="clickFunction(id)">START JOURNEY</a></p>
+      </div>
+    </div>
+    <!--  eat breakfast -->
+    <div id="breakfastPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">G A M E  O V E R </h2>
+        <div class="death">
+        <p>You're Dead</p>
+      </div>
+        <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  start journey-->
+    <div id="startjourneyPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">S T A R T  J O U R N E Y </h2>
+        <p class="title">
+        You have made a decision of starting your journey. As you start walking down the path you notice that there is a split in it that allows you to either go left or right. Do you wish to go LEFT or RIGHT?
+        </p>
+        <p class="choice"><a href="#" id="leftOption" class="options" onclick="clickFunction(id)">LEFT</a> or <a href="#" id="rightOption" class="options" onclick="clickFunction(id)">RIGHT</a></p>
+      </div>
+    </div>
+    <!--  left -->
+    <div id="leftPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">G A M E  O V E R </h2>
+        <div class="death">
+        <p>As you started your walk on the left path, a lion jumps out from behind a really tall tree. As the lion is walking towards you, you try to run which makes things really complicated. In the end, the lion kills you very badly because you gave it a hard time. In the end ----- You're Dead</p>
+      </div>
+        <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  right-->
+    <div id="rightPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title"> R I G H T </h2>
+        <p class="title">
+          You have made a decision of taking the path on the right. Lucky you! Due to your magnificent intuition you have received your next instructions but they lie in a red bag marked with a "Q" on it. You can decide to OPEN it or KEEP IT CLOSED and figure out where the jewel is on your own?
+        </p>
+        <p class="choice"><a href="#" id="openOption" class="options" onclick="clickFunction(id)">OPEN</a> or <a href="#" id="closedOption" class="options" onclick="clickFunction(id)">KEEP IT CLOSED</a></p>
+      </div>
+    </div>
+    <!--  open-->
+    <div id="openPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">G A M E  O V E R </h2>
+        <p class="title">
+          You have made a decision of taking the path on the right. Lucky you! Due to your magnificent intuition you have WON THE GAME!!!!!! Instead of the bag having instructions that will lead you to the jewel, this bag contained the jewel as well. After you found this jewel you were sent back home with 5,000,000,000,000,000 dollars and was given a crown for being the most amazing human being on the planet. You can choose to play agin if you would like.
+        </p>
+        <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  closed-->
+    <div id="closedPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">G A M E  O V E R </h2>
+        <p class="title">
+          Sadly, as you made a typical decision by keeping the bag closed, you missed out on a major chance to win the game. This choice of picking wrongly left you standed in the jungle for the next 50 years of your life. After 50 years a gorilla family climbed down from all the trees to (verbally) tell you that you made a mistake and that you'll never find the jewel. Although you lost, you can always play again and have another shot at finding the jewel!
+        </p>
+        <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  Adventure further-->
+    <div id="adventurefurtherPassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">C O N G R A D U L A T I O N S ! ! ! </h2>
+        <p class="title">
+          As you have used your magnificent intuition, you have won the game. You are a very persistant person who rather adventure further instead of sleeping and hoping for something else. Because of your decision making, the people who kidnapped you in the jungle decised to find you and recognize you foryour persistance. Not only did they give you an award but they gave you 3,000,000,000,000,000,000 dollars. CONGRADULATIONS!!! If you wish, you can happily play again.
+        </p>
+        <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+    <!--  Sleep and Hope-->
+    <div id="sleepandhopePassage" class="row" hidden>
+      <div class="col">
+        <h2 class="title">GAME OVER </h2>
+        <p class="title">
+          You have made a decision of sleeping and hoping. This is not a smart nor wise decision. As you were sleeping and hoping, a bunch of tigers walkked up to you. They not only didn't like how you were living in their jungle but you also were disrespecting the space by walking on two feet. Due to this, the family of tigers put you in a very small boat with only 2 cans of food and 4 cups of water. As you began to drift, you didn't get far because later a bunch of piranhas jumped on your boat and that was the end of you. THE END! If you would like to test your luck and intuition please play again!
+        </p>
+        <p class="death"><a href="#" onclick="location.reload()">Restart</a></p>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  </main>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="error-msg-box" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLongTitle">ERROR BOX</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div id="error-msg" class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <script src="libs/jquery-3.3.1.min.js"></script>
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+
+</body>
+
+</html>
